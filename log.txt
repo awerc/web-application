@@ -1,0 +1,32 @@
+[DEBUG] 2017/09/24 - 18:05:35  main.go:28  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:05:46  main.go:28  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:06:09  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:06:25  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:07:01  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:07:07  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:07:21  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:13:56  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:14:03  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:14:24  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:14:32  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:14:47  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:14:54  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:15:07  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:15:47  main.go:29  ▶  (string) (len=3) "wad"
+
+[DEBUG] 2017/09/24 - 18:16:02  main.go:28  ▶  (string) (len=3) "wad"
+

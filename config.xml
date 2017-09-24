@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings type="123">
+    <name>UserName</name>
+  </appSettings>
+  <http>
+    <listen>8080</listen>
+    <timeout>5000</timeout>
+  </http>
+  <database>
+    <host>localhost</host>
+    <port>8080</port>
+    <user>admin</user>
+    <pass>qwe322</pass>
+  </database>
+  <database>
+    <host>second</host>
+    <port>9999</port>
+    <user>user</user>
+    <pass>123qwe</pass>
+  </database>
+</configuration>
