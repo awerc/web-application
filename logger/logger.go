@@ -29,10 +29,14 @@ type Logger struct {
 	timeFormat string     //defaul is "2006/01/02 - 15:04:05"
 }
 
-//When creating, you can specify only 1 or 0 output file
+//When creating, you can specify only 1 or 0 output file.
+//
 //To add more use AddOutputFile or AddOutput
+//
 //Available logLevels: Debug | Info
 //Available flags: DateTime | Longfile | Shortfile
+//Use 'defer logger.Close()' after creating an instance
+//To close all opened files
 func Create(out *os.File, logLevels int, flag int) *Logger {
 	return &Logger{out: []*os.File{out}, logLevel: logLevels, flag: flag, timeFormat: "2006/01/02 - 15:04:05"}
 }
