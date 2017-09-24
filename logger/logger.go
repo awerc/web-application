@@ -29,7 +29,7 @@ type Logger struct {
 	timeFormat string     //defaul is "2006/01/02 - 15:04:05"
 }
 
-//When creating, you can specify only 1 or 0 output file.\n
+//When creating, you can specify only 1 or 0 output file.
 //To add more use AddOutputFile or AddOutput.
 //
 //Available logLevels: Debug | Info.
