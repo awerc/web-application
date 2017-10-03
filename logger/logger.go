@@ -19,26 +19,27 @@ const (
 const (
 	DateTime  = 1 << iota // the Date and Time in the local time zone: 2009/01/23 - 15:04:05
 	Longfile              // full file name and line number: /a/b/c/d.go:23
-	Shortfile             // final file name element and line number: d.go:23. overrides Longfile
+	Shortfile             // final file name element and line number: d.go:23 overrides Longfile
 )
 
 type Logger struct {
 	out        []*os.File //Destinations for output
+	prefix     string     //Smth that prints before message
 	logLevel   int        //Debug | Info
 	flag       int        //DateTime | Longfile | Shortfile
 	timeFormat string     //defaul is "2006/01/02 - 15:04:05"
 }
 
-//When creating, you can specify only 1 or 0 output file.
-//To add more use AddOutputFile or AddOutput.
+//After Initializing u have to add outputs with
+//AddOutputFile or AddOutput.
 //
 //Available logLevels: Debug | Info.
 //Available flags: DateTime | Longfile | Shortfile.
 //
 //Use 'defer logger.Close()' after creating an instance
 //to close all opened files
-func Create(out *os.File, logLevels int, flag int) *Logger {
-	return &Logger{out: []*os.File{out}, logLevel: logLevels, flag: flag, timeFormat: "2006/01/02 - 15:04:05"}
+func Initialize(prefix string, logLevels int, flag int) *Logger {
+	return &Logger{out: []*os.File{}, logLevel: logLevels, flag: flag, timeFormat: "2006/01/02 - 15:04:05", prefix: prefix}
 }
 
 //Adds an output file to the list using the file name
@@ -128,12 +129,12 @@ func (logger *Logger) getFileAndLine() (string, int) {
 //The debug displays detailed information about the given parameters
 func (logger *Logger) createLogString(v []interface{}, level string) string {
 	file, line := logger.getFileAndLine()
-	out := fmt.Sprint("[", level, "] ")
+	var out string
 	if logger.flag&DateTime != 0 {
 		now := time.Now().Format(logger.timeFormat)
-		out += fmt.Sprint(now, "  ", file, ":", line, "  ▶  ")
+		out += fmt.Sprint(logger.prefix, " [", level, "] ", now, "  ", file, ":", line, "  ▶  ")
 	} else {
-		out += fmt.Sprint(file, ":", line, "  ▶  ")
+		out += fmt.Sprint(logger.prefix, " [", level, "] ", file, ":", line, "  ▶  ")
 	}
 	for i, value := range v {
 		if level == "DEBUG" {
