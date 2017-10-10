@@ -8,15 +8,9 @@
     <timeout>5000</timeout>
   </http>
   <database>
-    <host>localhost</host>
-    <port>8080</port>
+    <name>postgres</name>
+    <host>localhost</host>  
     <user>admin</user>
-    <pass>qwe322</pass>
-  </database>
-  <database>
-    <host>second</host>
-    <port>9999</port>
-    <user>user</user>
-    <pass>123qwe</pass>
+    <pass>password</pass>
   </database>
 </configuration>

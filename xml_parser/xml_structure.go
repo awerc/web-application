@@ -8,7 +8,7 @@ type Configuration struct {
 	XMLName     xml.Name    `xml:"configuration"`
 	AppSettings AppSettings `xml:"appSettings"`
 	Http        Http        `xml:"http"`
-	Database    []Database  `xml:"database"`
+	Database    Database    `xml:"database"`
 }
 
 type AppSettings struct {
@@ -25,8 +25,8 @@ type Http struct {
 
 type Database struct {
 	XMLName xml.Name `xml:"database"`
+	Name    string   `xml:"name"`
 	Host    string   `xml:"host"`
-	Port    int      `xml:"port"`
 	User    string   `xml:"user"`
 	Pass    string   `xml:"pass"`
 }
