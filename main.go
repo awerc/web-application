@@ -29,12 +29,13 @@ func main() {
 	defer logger.Close()
 	logger.AddOutput(os.Stdout)
 	logger.AddOutputFile(logFilename)
-	err := xml_validator.Validate(configFilename, xsdFilename)
+
+	configuration, err := xml_parser.Parse(configFilename)
 	if err != nil {
 		logger.Info(err)
 	}
 
-	configuration, err := xml_parser.Parse(configFilename)
+	err = xml_validator.Validate(configuration)
 	if err != nil {
 		logger.Info(err)
 	}

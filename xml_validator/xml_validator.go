@@ -1,42 +1,25 @@
 package xml_validator
 
 import (
-	"github.com/jbussdieker/golibxml"
-	"github.com/krolaw/xsd"
-
 	"errors"
-	"io/ioutil"
-	"os"
-	"unsafe"
+	"regexp"
+
+	"web-application/xml_parser"
 )
 
-func Validate(xmlfilename string, xsdfilename string) error {
+func Validate(config xml_parser.Configuration) error {
 
-	xsdFile, err := os.Open(xsdfilename)
-	if err != nil {
-		return err
-	}
-	defer xsdFile.Close()
-
-	byteValue, err := ioutil.ReadAll(xsdFile)
-	if err != nil {
-		return err
+	if config.Http.Listen < 1024 || config.Http.Listen > 65535 {
+		return errors.New("Wrong port")
 	}
 
-	xsdSchema, err := xsd.ParseSchema(byteValue)
-	if err != nil {
-		return err
+	if config.Http.Timeout < 100 {
+		return errors.New("Too short timeout")
 	}
 
-	doc := golibxml.ParseFile(xmlfilename)
-	if doc == nil {
-		return errors.New("Error parsing document")
-	}
-	defer doc.Free()
-
-	err = xsdSchema.Validate(xsd.DocPtr(unsafe.Pointer(doc.Ptr)))
-	if err != nil {
-		return err
+	match, _ := regexp.MatchString("^\\w+$", config.Database.User)
+	if !match {
+		return errors.New("Wrong user name")
 	}
 
 	return nil
