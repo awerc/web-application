@@ -11,15 +11,16 @@ import (
 )
 
 var (
-	configFilename string
-	xsdFilename    string
-	logFilename    string
+	configFilename string //String that contains path to config file
+	logFilename    string //String that contains path to log file
 )
 
+//Reading command line parameters before programm execution
 func init() {
 	flag.StringVar(&configFilename, "config", "config.xml", "name of config file")
-	flag.StringVar(&xsdFilename, "xsd", "xsd", "name of xsd file")
+	//Command line parameter for config file. Default is config.xml
 	flag.StringVar(&logFilename, "log", "log.txt", "name of log file")
+	//Command line parameter for log file. Default is log.txt
 
 	flag.Parse()
 }
