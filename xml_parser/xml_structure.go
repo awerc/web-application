@@ -1,3 +1,4 @@
+//Structure of xml file
 package xml_parser
 
 import (
@@ -5,28 +6,23 @@ import (
 )
 
 type Configuration struct {
-	XMLName     xml.Name    `xml:"configuration"`
-	AppSettings AppSettings `xml:"appSettings"`
-	Http        Http        `xml:"http"`
-	Database    Database    `xml:"database"`
+	XMLName xml.Name `xml:"configuration"`
+	Connect Connect  `xml:"connect"`
+	User    User     `xml:"user"`
 }
 
-type AppSettings struct {
-	XMLName xml.Name `xml:"appSettings"`
-	Type    string   `xml:"type,attr"`
-	Name    string   `xml:"name"`
+type Connect struct {
+	XMLName       xml.Name `xml:"connect"`
+	Host          string   `xml:"host"`
+	Port          int      `xml:"port"`
+	Db            string   `xml:"db"`
+	Authorization string   `xml:"authorization"`
+	Timeout       int      `xml:"timeout"`
 }
 
-type Http struct {
-	XMLName xml.Name `xml:"http"`
-	Listen  int      `xml:"listen"`
-	Timeout int      `xml:"timeout"`
-}
-
-type Database struct {
-	XMLName xml.Name `xml:"database"`
-	Name    string   `xml:"name"`
-	Host    string   `xml:"host"`
-	User    string   `xml:"user"`
-	Pass    string   `xml:"pass"`
+type User struct {
+	XMLName  xml.Name `xml:"user"`
+	Type     string   `xml:"type"`
+	Login    string   `xml:"login"`
+	Password string   `xml:"password"`
 }

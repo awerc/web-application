@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <appSettings type="123">
-    <name>UserName</name>
-  </appSettings>
-  <http>
-    <listen>8080</listen>
-    <timeout>5000</timeout>
-  </http>
-  <database>
-    <name>postgres</name>
-    <host>localhost</host>  
-    <user>admin</user>
-    <pass>password</pass>
-  </database>
+<configuration> 
+    <connect>
+    	<host>localhost</host>
+    	<port>8080</port>
+    	<db>postgre</db>
+    	<authorization>yes</authorization>
+    	<timeout>1000</timeout>
+    </connect>
+    <user>
+    	<type>admin</type>
+    	<login>adm</login>
+    	<password>pass</password>
+    </user>
 </configuration>

@@ -11,37 +11,30 @@ var (
 			Space: "",
 			Local: "configuration",
 		},
-		AppSettings: AppSettings{
+		Connect: Connect{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "appSettings",
+				Local: "connect",
 			},
-			Type: "123",
-			Name: "UserName",
+			Host:          "localhost",
+			Port:          8080,
+			Db:            "postgre",
+			Authorization: "yes",
+			Timeout:       1000,
 		},
-		Http: Http{
+		User: User{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "http",
+				Local: "user",
 			},
-			Listen:  8080,
-			Timeout: 5000,
-		},
-		Database: Database{
-			XMLName: xml.Name{
-				Space: "",
-				Local: "database",
-			},
-			Name: "postgres",
-			Host: "localhost",
-			User: "admin",
-			Pass: "password",
+			Type:     "admin",
+			Login:    "adm",
+			Password: "pass",
 		},
 	}
 )
 
 func TestParsing(t *testing.T) {
-
 	actual, _ := Parse("../config.xml")
 	if actual != expected {
 		t.Errorf("Test failed, expected: '%v',\ngot:  '%v'", expected, actual)

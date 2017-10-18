@@ -34,11 +34,13 @@ func main() {
 	configuration, err := xml_parser.Parse(configFilename)
 	if err != nil {
 		logger.Info(err)
+		os.Exit(1)
 	}
 
 	err = xml_validator.Validate(configuration)
 	if err != nil {
 		logger.Info(err)
+		os.Exit(1)
 	}
 
 	spew.Dump(configuration)

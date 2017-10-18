@@ -1,7 +1,7 @@
 //Package logger implements logging analogous to standart log package
 //It provides two logging level: Debug and Info. Debug provides more detialized information.
 //The format of message:
-//[UR PREFIX] [LOG LEVEL] DATE - TIME  FILE:STRING_NUMBER  ▶  VARIABLES.
+//	[UR PREFIX] [LOG LEVEL] DATE - TIME  FILE:STRING_NUMBER  ▶  VARIABLES.
 //Using flags u can customize message.
 package logger
 

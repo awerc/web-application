@@ -12,31 +12,25 @@ func GetValidConfig() Configuration {
 			Space: "",
 			Local: "configuration",
 		},
-		AppSettings: AppSettings{
+		Connect: Connect{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "appSettings",
+				Local: "connect",
 			},
-			Type: "123",
-			Name: "UserName",
+			Host:          "localhost",
+			Port:          8080,
+			Db:            "postgre",
+			Authorization: "yes",
+			Timeout:       1000,
 		},
-		Http: Http{
+		User: User{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "http",
+				Local: "user",
 			},
-			Listen:  8080,
-			Timeout: 5000,
-		},
-		Database: Database{
-			XMLName: xml.Name{
-				Space: "",
-				Local: "database",
-			},
-			Name: "postgres",
-			Host: "localhost",
-			User: "admin",
-			Pass: "password",
+			Type:     "admin",
+			Login:    "adm",
+			Password: "pass",
 		},
 	}
 }
@@ -47,31 +41,25 @@ func GetConfigWithWrongPort() Configuration {
 			Space: "",
 			Local: "configuration",
 		},
-		AppSettings: AppSettings{
+		Connect: Connect{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "appSettings",
+				Local: "connect",
 			},
-			Type: "123",
-			Name: "UserName",
+			Host:          "localhost",
+			Port:          5,
+			Db:            "postgre",
+			Authorization: "yes",
+			Timeout:       1000,
 		},
-		Http: Http{
+		User: User{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "http",
+				Local: "user",
 			},
-			Listen:  100,
-			Timeout: 5000,
-		},
-		Database: Database{
-			XMLName: xml.Name{
-				Space: "",
-				Local: "database",
-			},
-			Name: "postgres",
-			Host: "localhost",
-			User: "admin",
-			Pass: "password",
+			Type:     "admin",
+			Login:    "adm",
+			Password: "pass",
 		},
 	}
 }
@@ -82,31 +70,25 @@ func GetConfigWithWrongTimeout() Configuration {
 			Space: "",
 			Local: "configuration",
 		},
-		AppSettings: AppSettings{
+		Connect: Connect{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "appSettings",
+				Local: "connect",
 			},
-			Type: "123",
-			Name: "UserName",
+			Host:          "localhost",
+			Port:          8080,
+			Db:            "postgre",
+			Authorization: "yes",
+			Timeout:       1,
 		},
-		Http: Http{
+		User: User{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "http",
+				Local: "user",
 			},
-			Listen:  8080,
-			Timeout: 1,
-		},
-		Database: Database{
-			XMLName: xml.Name{
-				Space: "",
-				Local: "database",
-			},
-			Name: "postgres",
-			Host: "localhost",
-			User: "admin",
-			Pass: "password",
+			Type:     "admin",
+			Login:    "adm",
+			Password: "pass",
 		},
 	}
 }
@@ -117,31 +99,25 @@ func GetConfigWithWrongUsername() Configuration {
 			Space: "",
 			Local: "configuration",
 		},
-		AppSettings: AppSettings{
+		Connect: Connect{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "appSettings",
+				Local: "connect",
 			},
-			Type: "123",
-			Name: "UserName",
+			Host:          "localhost",
+			Port:          8080,
+			Db:            "postgre",
+			Authorization: "yes",
+			Timeout:       1000,
 		},
-		Http: Http{
+		User: User{
 			XMLName: xml.Name{
 				Space: "",
-				Local: "http",
+				Local: "user",
 			},
-			Listen:  8080,
-			Timeout: 5000,
-		},
-		Database: Database{
-			XMLName: xml.Name{
-				Space: "",
-				Local: "database",
-			},
-			Name: "postgres",
-			Host: "localhost",
-			User: "@#$%^",
-			Pass: "password",
+			Type:     "admin",
+			Login:    "*/-",
+			Password: "pass",
 		},
 	}
 }
