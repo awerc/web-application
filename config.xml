@@ -2,14 +2,14 @@
 <configuration> 
     <connect>
     	<host>localhost</host>
-    	<port>8080</port>
-    	<db>postgre</db>
+    	<port>5432</port>
+    	<db>food_delivery</db>
     	<authorization>yes</authorization>
     	<timeout>1000</timeout>
     </connect>
     <user>
-    	<type>admin</type>
-    	<login>adm</login>
+    	<type>superuser</type>
+    	<login>expo</login>
     	<password>pass</password>
     </user>
 </configuration>
