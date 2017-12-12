@@ -29,6 +29,34 @@ func (this *CostForOrders) Println() {
 		this.Order, this.Cost/100, this.Cost%100)
 }
 
+func GetAllOrders(db *sql.DB) (list []*Orders, err error) {
+	err = db.Ping()
+	if err != nil {
+		return nil, err
+	}
+
+	rows, err := db.Query(`
+		SELECT id, client, order_time 
+		FROM orders
+    	`)
+
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	list = make([]*Orders, 0)
+	for rows.Next() {
+		order := new(Orders)
+		err = rows.Scan(&order.Id, &order.Client, &order.Order_time)
+		if err != nil {
+			return nil, err
+		}
+		list = append(list, order)
+	}
+	return list, nil
+}
+
 func GetOrderForClient(db *sql.DB, client int) (list []*Orders, err error) {
 	err = db.Ping()
 	if err != nil {
@@ -122,7 +150,7 @@ INNER JOIN
       WHERE client = $1)
     ) as res2
     ON id = product_id
-  GROUP BY order_id; 	
+  GROUP BY order_id;
     	`, client)
 
 	if err != nil {

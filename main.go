@@ -4,7 +4,9 @@ import (
 	"flag"
 	"fmt"
 	// "github.com/davecgh/go-spew/spew"
+	"net/http"
 	"os"
+	"web-application/api"
 	"web-application/database"
 	"web-application/logger"
 	"web-application/xml_parser"
@@ -92,5 +94,11 @@ func main() {
 
 	// err = food_delivery.ChangeClientTelephone(db, 7, "877454887")
 	// check_error(err, true, logger)
+
 	//spew.Dump(configuration)
+	logger.Info("Starting server")
+	http.HandleFunc("/clients/", func(w http.ResponseWriter, r *http.Request) {
+		handlers.ClientsHandler(w, r, db, logger)
+	})
+	http.ListenAndServe("localhost:8080", nil)
 }
